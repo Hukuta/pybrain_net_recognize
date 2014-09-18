@@ -30,9 +30,6 @@ class Index:
     def POST(self):
         web.header('Content-Type', 'text/html; charset=utf-8', unique=True)
         img_str = web.input(name=['image']).get('image', 'data:image/png;base64,')
-        filename_src = web.input(name=['file']).get('file', None)
-        if not (filename_src and img_str):
-            return u'Ошибка'
         img_data = base64.b64decode(img_str.replace('data:image/png;base64,', ''))
         im = Image.open(StringIO.StringIO(img_data))
         data = [int(px != (0, 0, 0, 0)) for px in iter(im.getdata())]
@@ -53,7 +50,7 @@ class Index:
                 num += 1
         result = round(net.activate(data)[0])
         if result in codes:
-            return u'<p>Распознано как</p><p><img src="images-src/%s" alt="Распознано как"></p>' % codes[result]
+            return str(codes) + u'<p>Распознано как</p><p><img src="images-src/%s" alt="Распознано как"></p>' % codes[result]
         return u'Не распознано'
 
 
