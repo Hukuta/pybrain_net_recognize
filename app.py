@@ -35,8 +35,6 @@ class Index:
             return u'Ошибка'
         img_data = base64.b64decode(img_str.replace('data:image/png;base64,', ''))
         im = Image.open(StringIO.StringIO(img_data))
-        #im = Image.frombytes('RGB', (100, 100), data)
-        #im = Image.open(base64.b64decode(img_str.replace('data:image/png;base64,', '')))
         data = [int(px != (0, 0, 0, 0)) for px in iter(im.getdata())]
         with open('trained.net', 'r') as file_object:
             net = pickle.load(file_object)
@@ -50,14 +48,12 @@ class Index:
         # перебираем все каталоги, в которых файлы для обучения
         for src_dir in files_known:
             if os.listdir(src + '/' + src_dir):
-                # сохраняем соответствие
-                codes[src_dir] = num
+                codes[num] = src_dir
                 # назачаем новое число каждому образу
                 num += 1
         result = round(net.activate(data)[0])
-        for filename in codes.keys():
-            if codes[filename] == result:
-                return u'<p>Распознано как</p><p><img src="images-src/%s" alt="Распознано как"></p>' % filename
+        if result in codes:
+            return u'<p>Распознано как</p><p><img src="images-src/%s" alt="Распознано как"></p>' % codes[result]
         return u'Не распознано'
 
 
