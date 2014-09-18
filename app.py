@@ -24,9 +24,11 @@ class Index:
     def GET(self):
         with open('static/index.html', 'rb') as rb:
             html = rb.read()
+        web.header('Content-Type', 'text/html; charset=utf-8', unique=True)
         return html.replace('ip.gif', random.choice(os.listdir('static/images-learn')))
 
     def POST(self):
+        web.header('Content-Type', 'text/html; charset=utf-8', unique=True)
         img_str = web.input(name=['image']).get('image', 'data:image/png;base64,')
         filename_src = web.input(name=['file']).get('file', None)
         if not (filename_src and img_str):
@@ -63,9 +65,11 @@ class Teach:
     def GET(self):
         with open('static/index.html', 'rb') as rb:
             html = rb.read()
+        web.header('Content-Type', 'text/html; charset=utf-8', unique=True)
         return html.replace('ip.gif', random.choice(os.listdir('static/images-learn')))
 
     def POST(self):
+        web.header('Content-Type', 'text/html; charset=utf-8', unique=True)
         img_str = web.input(name=['image']).get('image', 'data:image/png;base64,')
         filename_src = web.input(name=['file']).get('file', None)
         if not filename_src:
