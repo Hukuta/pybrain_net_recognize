@@ -84,7 +84,6 @@ def teach():
     # каталог с изображениями для обучения
     src = 'static/images-learn'
     files_known = os.listdir(src)
-    files_known.sort()
 
     # размер изображений 100*100px
     ds_sz = 100 * 100
@@ -94,7 +93,7 @@ def teach():
     # цифра на выходе
     num = 0
     # перебираем все каталоги, в которых файлы для обучения
-    for src_dir in files_known:
+    for src_dir in sorted(files_known):
         if os.listdir(src + '/' + src_dir):
             # считываем все файлы, по которым учим сеть
             for file_teach in os.listdir(src + '/' + src_dir):

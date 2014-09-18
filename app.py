@@ -38,13 +38,12 @@ class Index:
         # каталог с изображениями для обучения
         src = 'static/images-learn'
         files_known = os.listdir(src)
-        files_known.sort()
         # соответсвия между именем распозноваемого файла и цифрой на выходе из сети
         codes = dict()
         # цифра на выходе
         num = 0
         # перебираем все каталоги, в которых файлы для обучения
-        for src_dir in files_known:
+        for src_dir in sorted(files_known):
             if os.listdir(src + '/' + src_dir):
                 codes[num] = src_dir
                 # назачаем новое число каждому образу
