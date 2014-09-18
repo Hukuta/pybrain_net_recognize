@@ -1,0 +1,5 @@
+numpy
+scipy
+pybrain
+web.py
+Pillow

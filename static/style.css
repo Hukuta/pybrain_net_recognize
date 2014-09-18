@@ -1,0 +1,28 @@
+body {
+    background: #000;
+    color: #FFFFFF
+}
+
+table {
+    width: 300px;
+    border: 0px solid #000000;
+    margin: auto;
+}
+
+td {
+    text-align: center;
+}
+
+button {
+    padding: 10px
+}
+
+#blackboard-frame {
+    position: absolute;
+    top: 10%;
+    width: 100%;
+    text-align: center;
+}
+#blackboard{
+    background: #FFFFFF;
+}

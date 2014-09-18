@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+<meta charset="UTF-8">
+<link href="style.css" rel="stylesheet">
+<title>Докажите что Вы не робот</title>
+<body>
+<div id="blackboard-frame">
+    <h2>Докажите что Вы не робот</h2>
+
+    <h3>Нарисуйте символ:</h3>
+
+    <div>
+        <table>
+            <tr>
+                <td>Образец</td>
+                <td>Поле для рисования</td>
+            </tr>
+            <tr>
+                <td><img src="images-src/ip.gif" alt="образец" id="source_filename"></td>
+                <td>
+                    <canvas id="blackboard" width="100" height="100"></canvas>
+                </td>
+            </tr>
+        </table>
+        <p>
+            <button id="cancel">Очистить поле</button>
+        </p>
+        <p>
+            <button id="finish">Рисунок готов</button>
+        </p>
+        <p id="result">
+        </p>
+    </div>
+</div>
+
+<script src='jquery-1.11.1.min.js'></script>
+<script src='main.js'></script>
+</body>
+</html>
