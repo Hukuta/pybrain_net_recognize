@@ -84,6 +84,7 @@ def teach():
     # каталог с изображениями для обучения
     src = 'static/images-learn'
     files_known = os.listdir(src)
+    files_known.sort()
 
     # размер изображений 100*100px
     ds_sz = 100 * 100

@@ -38,6 +38,7 @@ class Index:
         # каталог с изображениями для обучения
         src = 'static/images-learn'
         files_known = os.listdir(src)
+        files_known.sort()
         # соответсвия между именем распозноваемого файла и цифрой на выходе из сети
         codes = dict()
         # цифра на выходе
@@ -50,7 +51,7 @@ class Index:
                 num += 1
         result = round(net.activate(data)[0])
         if result in codes:
-            return str(codes) + u'<p>Распознано как</p><p><img src="images-src/%s" alt="Распознано как"></p>' % codes[result]
+            return u'<p>Распознано как</p><p><img src="images-src/%s" alt="Распознано как"></p>' % codes[result]
         return u'Не распознано'
 
 
