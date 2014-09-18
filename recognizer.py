@@ -112,7 +112,7 @@ def teach():
         ds_test.appendLinked(inp, [out])
 
     # добавим больше данных для обучения
-    for n in xrange(500):
+    for n in xrange(800):
         for i in range(num):
             out = -1
             inp = None
