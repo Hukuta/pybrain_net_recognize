@@ -123,7 +123,7 @@ def teach():
     net = buildNetwork(ds_sz, 2, 1)
     trainer = Trainer(net, momentum=0.1, verbose=True, weightdecay=0.01)
     trainer.setData(ds)
-    trainer.trainUntilConvergence(verbose=True, maxError=0.0125)
+    trainer.trainUntilConvergence(verbose=True, maxError=0.025)
     trainer.setData(ds_test)
     trainer.testOnData(verbose=True)
 
